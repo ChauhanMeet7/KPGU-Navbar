@@ -1,0 +1,137 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: #004080;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #004080;
+  text-decoration:none;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+   text-decoration:none;
+}
+
+/* Menu items */
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu li a,
+.nav-menu li button {
+  color: white;
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu li a:hover,
+.nav-menu li button:hover {
+  color: #ffd700;
+}
+
+/* Dropdown caret */
+.caret {
+  margin-left: 5px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #003060;
+  list-style: none;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #002050;
+  color: #ffd700;
+}
+
+/* Hover dropdown */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .menu-toggle:checked + .hamburger + .navbar .nav-menu {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none; /* disable hover for mobile */
+  }
+
+  .dropdown .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+}
